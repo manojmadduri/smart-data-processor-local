@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base page background & typography */
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+}
+
+/* Navbar */
+.navbar {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm;
+}
+
+/* Buttons */
+.btn {
+  @apply font-semibold py-2 px-4 rounded transition;
+}
+.btn-primary {
+  @apply bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900;
+}
+.btn-primary:hover {
+  @apply bg-gray-700 dark:bg-gray-300;
+}
+
+/* Gradient wrapper for examples */
+.gradient-box {
+  @apply bg-gradient-to-r from-emerald-400 via-teal-500 to-blue-500 
+         text-white rounded-xl p-6 shadow-lg overflow-auto;
+}
