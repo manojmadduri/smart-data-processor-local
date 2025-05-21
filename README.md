@@ -103,40 +103,62 @@ smart-data-processor/
 
 ---
 
-## 🚀 Quick Start
+## ⚙️ Local Development Setup
 
-### Option 1: Use Live Demo (Recommended)
-Visit [https://smart-data-processor.vercel.app/](https://smart-data-processor.vercel.app/) and start processing immediately!
+### Prerequisites
+- **Node.js** 16+ ([Download here](https://nodejs.org/))
+- **Python** 3.8+ ([Download here](https://python.org/downloads/))
+- **Git** ([Download here](https://git-scm.com/))
 
-### Option 2: Local Development
-
-#### Prerequisites
+### 1. Clone the Repository
 ```bash
-Node.js 16+, Python 3.8+, Git
+git clone https://github.com/manojmadduri/smart-data-processor-local.git
+cd smart-data-processor-local
 ```
 
-#### Backend Setup
+### 2. Backend Setup
 ```bash
 cd backend
 npm install
 pip install -r requirements.txt
-python nltk_setup.py
 node server.js
-# Server runs on http://localhost:4000
 ```
+✅ **Backend runs on:** `http://localhost:4000`
 
-#### Frontend Setup
+### 3. Frontend Setup
+Open a new terminal window:
 ```bash
 cd frontend
 npm install
 npm start
-# App runs on http://localhost:3000
+```
+✅ **Frontend runs on:** `http://localhost:3000`
+
+### 4. Environment Configuration
+Create `.env` file in the `frontend` directory:
+```bash
+REACT_APP_API_URL=http://localhost:4000
 ```
 
-#### Environment Variables
-Create `.env` in frontend:
+### 5. Test the Application
+1. Open `http://localhost:3000` in your browser
+2. Upload a sample `.txt` file
+3. Click "Process Files"
+4. Download the generated JSONL files
+
+### 🔧 Optional: Custom Configuration
+You can modify these settings in your local environment:
+
+**Backend Environment Variables:**
+```bash
+PORT=4000                    # Server port
+UPLOAD_DIR=uploads          # Upload directory
+PYTHON_PATH=python3         # Python executable path
 ```
-REACT_APP_API_URL=http://localhost:4000
+
+**Frontend Environment Variables:**
+```bash
+REACT_APP_API_URL=http://localhost:4000    # Backend API URL
 ```
 
 ---
@@ -161,57 +183,7 @@ REACT_APP_API_URL=http://localhost:4000
    - Use built-in preview to validate outputs
    - Check question quality and topic accuracy
 
----
 
-## 🌐 Deployment Guide
-
-### Backend (Render)
-1. **Create Web Service** on [Render.com](https://render.com)
-2. **Configure Build:**
-   ```bash
-   npm install && pip3 install --no-cache-dir -r requirements.txt && python3 nltk_setup.py
-   ```
-3. **Start Command:** `node server.js`
-4. **Environment Variables:**
-   ```
-   PORT=4000
-   UPLOAD_DIR=uploads
-   PYTHON_PATH=python3
-   ```
-
-### Frontend (Vercel)
-1. **Import Project** on [Vercel.com](https://vercel.com)
-2. **Root Directory:** `frontend`
-3. **Environment Variable:**
-   ```
-   REACT_APP_API_URL=https://your-backend.onrender.com
-   ```
-
----
-
-## 🔧 Advanced Configuration
-
-### CORS Setup (Production)
-```js
-// server.js
-app.use(cors({
-  origin: [
-    'https://smart-data-processor.vercel.app',
-    'http://localhost:3000'
-  ],
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
-```
-
-### Timeout Configuration
-```js
-// api.js
-export const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-  timeout: 300000, // 5 minutes for large files
-});
-```
 
 ---
 
@@ -298,13 +270,13 @@ If you use Smart Data Processor in your research, academic work, or projects, pl
 ### **APA Style:**
 ```
 Madduri, M. (2024). Smart Data Processor: AI-Powered Text to JSONL Converter [Software]. 
-GitHub. https://github.com/manojmadduri/smart-data-processor
+GitHub. https://github.com/manojmadduri/smart-data-processor-local
 ```
 
 ### **IEEE Style:**
 ```
 M. Madduri, "Smart Data Processor: AI-Powered Text to JSONL Converter," 2024. 
-[Online]. Available: https://github.com/manojmadduri/smart-data-processor
+[Online]. Available: https://github.com/manojmadduri/smart-data-processor-local
 ```
 
 ### **BibTeX:**
