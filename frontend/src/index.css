@@ -28,3 +28,36 @@ body {
   @apply bg-gradient-to-r from-emerald-400 via-teal-500 to-blue-500 
          text-white rounded-xl p-6 shadow-lg overflow-auto;
 }
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+/* Card entrance (optional shared) */
+.card-appear {
+  animation: fade-in 0.4s ease-in-out both;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 120, 120, 0.3);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}

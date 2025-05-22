@@ -19,28 +19,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
-      <nav className="navbar fixed top-0 w-full py-4 px-6 z-10">
-        <div className="max-w-5xl mx-auto flex justify-between items-center">
-          <span className="text-xl font-bold">Smart Data Processor</span>
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => nav('/upload')}
-              className="btn btn-primary"
-            >
-              Upload
-            </button>
-            <a
-              href="https://github.com/manojmadduri"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </nav>
+
 
       {/* Main content */}
       <main className="flex-grow pt-24 pb-12 px-4">

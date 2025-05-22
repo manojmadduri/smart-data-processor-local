@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import FileUploader from '../components/FileUploader';
-import ProgressSpinner from '../components/ProgressSpinner';
 import DownloadLinks from '../components/DownloadLinks';
 import JSONPreviewModal from '../components/JSONPreviewModal';
 import { uploadFiles } from '../services/api';
+import FullscreenSpinner from '../components/FullscreenSpinner';
 
 export default function UploadPage() {
   const [files, setFiles]       = useState([]);
@@ -39,12 +39,14 @@ export default function UploadPage() {
       <FileUploader files={files} setFiles={setFiles} />
 
       <button
-        className="btn btn-primary w-full mt-4 flex items-center justify-center"
-        disabled={!files.length || loading}
-        onClick={handleProcess}
-      >
-        {loading ? <ProgressSpinner /> : 'Process Files'}
-      </button>
+  onClick={handleProcess}
+  disabled={!files.length || loading}
+  className="btn btn-primary w-full"
+>
+  🚀 Process File(s)
+</button>
+
+{loading && <FullscreenSpinner />}
 
       {endpoints && (
         <div className="mt-6 space-y-4">
