@@ -29,8 +29,8 @@ export default function PricingPage() {
         'History & priority queue',
         'Early access to features',
       ],
-      link: 'https://rzp.io/l/your-pro-link',
-      yearlyLink: 'https://rzp.io/l/your-pro-yearly-link',
+      link: '#',
+      yearlyLink: '#',
       highlight: true,
     },
     {
@@ -44,8 +44,8 @@ export default function PricingPage() {
         '3,000 file credits/mo',
         'Priority support',
       ],
-      link: 'https://rzp.io/l/your-api-link',
-      yearlyLink: 'https://rzp.io/l/your-api-yearly-link',
+      link: '#',
+      yearlyLink: '#',
       highlight: false,
     },
   ];

@@ -10,14 +10,12 @@ export default function NavBar() {
   const location = useLocation();
   const dropdownRef = useRef(null);
 
-  // Scroll shadow effect
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menu on outside click
   useEffect(() => {
     const handler = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -34,14 +32,14 @@ export default function NavBar() {
     `block px-4 py-2 rounded transition duration-200 ${
       location.pathname === path
         ? 'text-primary font-semibold underline underline-offset-4'
-        : 'text-gray-700 dark:text-gray-300 hover:text-primary'
+        : 'text-gray-800 dark:text-gray-300 hover:text-primary'
     }`;
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-shadow duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-shadow duration-300 border-b ${
         isScrolled ? 'shadow-md' : 'shadow-none'
-      } bg-base-100`}
+      } bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700`}
     >
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
@@ -59,14 +57,17 @@ export default function NavBar() {
           <Link to="/upload" className={navLinkClass('/upload')}>
             Upload
           </Link>
+          <Link to="/guide" className={navLinkClass('/guide')}>
+            FineTuning Guide
+          </Link>
           <Link to="/pricing" className={navLinkClass('/pricing')}>
             Pricing
           </Link>
           <a
-            href="https://github.com/manojmadduri"
+            href="https://github.com/manojmadduri/smart-data-processor-local"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-primary"
+            className="text-gray-800 dark:text-gray-300 hover:text-primary"
           >
             GitHub
           </a>
@@ -81,7 +82,7 @@ export default function NavBar() {
         {/* Mobile Menu */}
         <div className="md:hidden relative" ref={dropdownRef}>
           <button
-            onClick={() => setMenuOpen(prev => !prev)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             className="btn btn-sm btn-outline p-2"
             aria-label="Toggle menu"
           >
@@ -89,7 +90,7 @@ export default function NavBar() {
           </button>
 
           <ul
-            className={`absolute right-0 mt-2 w-56 bg-base-200 p-4 rounded-box shadow-xl space-y-2 z-50 transform transition-all duration-200 origin-top ${
+            className={`absolute right-0 mt-2 w-56 rounded-box shadow-xl z-50 transform transition-all duration-200 origin-top bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 ${
               menuOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
             }`}
           >
@@ -99,16 +100,21 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
+              <Link to="/guide" className={navLinkClass('/guide')} onClick={() => setMenuOpen(false)}>
+                FineTuning Guide
+              </Link>
+            </li>
+            <li>
               <Link to="/pricing" className={navLinkClass('/pricing')} onClick={() => setMenuOpen(false)}>
                 Pricing
               </Link>
             </li>
             <li>
               <a
-                href="https://github.com/manojmadduri"
+                href="https://github.com/manojmadduri/smart-data-processor-local"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-primary"
+                className="block px-4 py-2 hover:text-primary"
               >
                 GitHub
               </a>

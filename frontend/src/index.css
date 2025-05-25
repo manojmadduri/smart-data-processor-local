@@ -23,28 +23,28 @@ body {
   @apply bg-gray-700 dark:bg-gray-300;
 }
 
-/* Gradient wrapper for examples */
+/* Gradient wrapper */
 .gradient-box {
   @apply bg-gradient-to-r from-emerald-400 via-teal-500 to-blue-500 
          text-white rounded-xl p-6 shadow-lg overflow-auto;
 }
 
-/* Animations */
+/* Fade-in Animation */
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: scale(0.97);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 .animate-fade-in {
-  animation: fade-in 0.25s ease-out;
+  animation: fade-in 0.3s ease-out both;
 }
 
-/* Card entrance (optional shared) */
+/* Card entrance animation */
 .card-appear {
   animation: fade-in 0.4s ease-in-out both;
 }
